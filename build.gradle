@@ -1,0 +1,35 @@
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// Define sources and test directories
+sourceSets {
+    main.java.srcDirs = ['src']
+    test.java.srcDirs = ['tst']
+}
+
+// Configure our main class
+application {
+    mainClass = 'takehome.App'
+}
+
+// Use Maven for nifty external helper libraries
+repositories { 
+    mavenCentral() 
+}
+
+// Declare our dependencies
+dependencies {
+    implementation "commons-cli:commons-cli:1.4" // For command-line arg processing
+    implementation "commons-io:commons-io:2.10.0" // For stream helper methods
+    implementation "org.apache.httpcomponents:httpclient:4.5.13" // For HTTP requests
+
+    testImplementation "org.junit.jupiter:junit-jupiter:5.7.0"
+    testImplementation "org.mockito:mockito-all:1.10.19"
+}
+
+// Declare our test task to run with JUnit
+test {
+    useJUnitPlatform()
+}
