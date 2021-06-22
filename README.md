@@ -29,7 +29,7 @@ Use the `test` Gradle task:
 
 This project can generate an application which can be run more traditionally:
 
-```./gremlin run --args='--language [english, russian]'```
+```./gremlin --language [english, russian]```
 
 To build this, run:
 
